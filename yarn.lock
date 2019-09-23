@@ -112,7 +112,7 @@
     "@angular-devkit/core" "8.3.5"
     rxjs "6.4.0"
 
-"@angular/animations@~8.2.7":
+"@angular/animations@^8.2.7":
   version "8.2.7"
   resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-8.2.7.tgz#643b673e705eb10f9a0f7199de0498d635d2314c"
   integrity sha512-Q17WadeM0WnL97Qt2xGB4LonQrVEsefjC9kUYDOIzEY9Z70eBGfH2ak6rBzlWpDmxCpIFOxEDQy/Dd3z7/nr6g==
@@ -5740,6 +5740,16 @@ prepend-http@^1.0.0:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/prepend-http/-/prepend-http-1.0.4.tgz#d4f4562b0ce3696e41ac52d0e002e57a635dc6dc"
   integrity sha1-1PRWKwzjaW5BrFLQ4ALlemNdxtw=
+
+primeicons@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/primeicons/-/primeicons-2.0.0.tgz#ec3e5a8d4d04a09309225a5a57deb911e08dc0d3"
+  integrity sha512-GJTCeMSQU8UU1GqbsaDrg/IH+b/vSinJQl52NVpdJ7sShYLZA8Eq6jLF48Ye3N/dQloGrE07i7XsZvxQ9pNbqg==
+
+primeng@^8.0.3:
+  version "8.0.3"
+  resolved "https://registry.yarnpkg.com/primeng/-/primeng-8.0.3.tgz#f13d9fdc85d1678250efa1864272c7d6dc36fa17"
+  integrity sha512-WLSyPQ9Ig7AC9d7JRenhSMjyUqPhBpNtqQ68b9D93BsyXmvhAHUQb+3S4OTQNMKMi+l1uJSKcTZ0NWRT8xDu8Q==
 
 private@^0.1.6:
   version "0.1.8"
