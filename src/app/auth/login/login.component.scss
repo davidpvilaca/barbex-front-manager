@@ -1,0 +1,31 @@
+.login {
+
+  $bottom-border: 1px solid #EEE;
+
+  .title {
+    h1 {
+      text-align: center;
+      color: #EEE;
+      font-weight: 300;
+      margin: 0 0 30px;
+    }
+
+    border-bottom: $bottom-border;
+  }
+
+  .form {
+    padding: 15px 0;
+    border-bottom: $bottom-border;
+  }
+
+  .footer {
+    padding:  15px 0 0 0;
+    text-align: center;
+	display: flex;
+	flex-direction: column;
+	a.mt {
+	  margin-top: 10px;
+	}
+  }
+
+}

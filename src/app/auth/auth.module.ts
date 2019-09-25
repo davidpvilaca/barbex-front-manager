@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
 
 import { SharedModule } from '@shared';
 
@@ -19,7 +21,9 @@ import { ForgotComponent } from './forgot/forgot.component';
   ],
   imports: [
     SharedModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    InputTextModule,
+    ButtonModule
   ]
 })
 export class AuthModule { }
