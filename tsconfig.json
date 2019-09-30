@@ -11,6 +11,7 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2015",
+    "resolveJsonModule": true,
     "typeRoots": [
       "node_modules/@types"
     ],
@@ -19,9 +20,24 @@
       "dom"
     ],
     "paths": {
-      "@core": ["src/app/@core"],
-      "@shared": ["src/app/@shared"],
-      "@app/*": ["src/app/*"]
+      "@core": [
+        "src/app/@core"
+      ],
+      "@core/*": [
+        "src/app/@core/*"
+      ],
+      "@shared": [
+        "src/app/@shared"
+      ],
+      "@shared/*": [
+        "src/app/@shared/*"
+      ],
+      "@app/*": [
+        "src/app/*"
+      ],
+      "@environments": [
+        "src/environments/environment.ts"
+      ]
     }
   },
   "angularCompilerOptions": {
