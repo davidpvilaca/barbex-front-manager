@@ -1,30 +1,62 @@
+$bg-box-color: #272727;
+
 .auth-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100%;
   overflow-y: scroll;
 
   .box {
-    $bg: #13232f;
-    background: $bg;
+    background: $bg-box-color;
     padding: 40px;
     max-width:600px;
-    margin: 40px auto;
+    margin: 0 auto;
     font-family: 'Titillium Web', sans-serif;
     border-radius: 4px;
-    box-shadow: 0 4px 10px 4px rgba($bg,.3);
+    box-shadow: 0 4px 10px 4px rgba($bg-box-color,.3);
 
     width: 600px;
+
+    @media (min-width: 501px) and (max-width: 635px) {
+      width: 470px;
+    }
 
     @media (max-width: 500px) {
       width: 290px;
     }
 
     @media (max-width: 400px) {
+      width: 250px;
+      padding: 10px;
+    }
+  }
+
+  .logo {
+    text-align: center;
+    @media (max-width: 500px) {
       & {
-        width: 250px;
+        margin-top: 15px;
       }
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      width: auto\9;
+
+      @media (max-width: 500px) {
+        & {
+          max-width: 70%;
+        }
+      }
+    }
+  }
+
+  .login-footer {
+    p {
+      font-size: 0.8rem;
+      color: $bg-box-color;
     }
   }
 }

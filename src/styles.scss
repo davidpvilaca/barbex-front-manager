@@ -6,8 +6,23 @@ html, body {
   font-family: 'Titillium Web', sans-serif;
 }
 
-a {
+/****************************************************
+*
+* VARIABLES
+*
+*****************************************************/
+$info-color: #ff6600;
+$info-color-white: #ff7a21;
+$info-color-ultra-white: #dcaa86;
+
+body a {
   cursor: pointer;
+  color: $info-color-white;
+  outline-color: #dcaa86;
+
+  &:hover, &:focus, &:active {
+    color: $info-color-ultra-white;
+  }
 }
 
 /****************************************************
@@ -20,5 +35,25 @@ p-button {
   .login-btn {
     width: 150px;
     height: 40px;
+  }
+
+  .ui-button.ui-state-default.ui-button-info {
+    color: #ffffff;
+    background-color: $info-color;
+    border: 1px solid $info-color;
+
+    :hover, :active {
+      background-color: $info-color-white;
+      border: 1px solid $info-color-white;
+    }
+  }
+  .ui-button.ui-state-default.ui-button-info:enabled {
+    &:hover, &:active {
+      background-color: $info-color-white;
+      border: 1px solid $info-color-white;
+    }
+    &:focus {
+      box-shadow: 0 0 0 0.2em $info-color-ultra-white;
+    }
   }
 }
