@@ -1,0 +1,14 @@
+@media (min-width: 990px) {
+  .collapse.navbar-collapse {
+    padding-left: 25px;
+  }
+}
+
+.nav-right {
+  flex: 1;
+  text-align: right;
+
+  button {
+    margin-right: 10px;
+  }
+}
