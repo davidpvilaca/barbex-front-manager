@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-12 text-center">
+    <h2>Cadastro de barbeiros</h2>
+  </div>
+</div>
+<form [formGroup]="form" (ngSubmit)="submit()" style="margin-top: 30px">
+  <div class="row">
+    <div class="col-12">
+      <div class="form-group">
+        <label for="name">Nome</label>
+        <input type="text" class="form-control" formControlName="name" id="name" name="name"
+          placeholder="Insira o nome do barbeiro">
+        <barbex-validation-errors *ngIf="form?.get('name')?.touched" [error]="getFormFieldError('name')">
+        </barbex-validation-errors>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" formControlName="email" id="email" name="email"
+          placeholder="Insira o email do barbeiro">
+        <barbex-validation-errors *ngIf="form?.get('email')?.touched" [error]="getFormFieldError('email')">
+        </barbex-validation-errors>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="form-group">
+        <label for="password">Senha</label>
+        <input type="password" class="form-control" formControlName="password" id="password" name="password"
+          placeholder="Insira a senha do barbeiro">
+        <barbex-validation-errors *ngIf="form?.get('password')?.touched" [error]="getFormFieldError('password')">
+        </barbex-validation-errors>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="form-group">
+        <label for="repassword">Repetição de senha</label>
+        <input type="password" class="form-control" formControlName="repassword" id="repassword" name="repassword"
+          placeholder="Repita a senha inserida no campo acima">
+        <barbex-validation-errors *ngIf="form?.get('repassword')?.touched" [error]="getFormFieldError('repassword')">
+        </barbex-validation-errors>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col text-right actions">
+      <p-button type="submit" styleClass="login-btn ui-button-info ui-button-raised" label="Cadastrar"></p-button>
+    </div>
+  </div>
+</form>

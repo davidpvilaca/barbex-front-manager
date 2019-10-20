@@ -1,31 +1,36 @@
-<div class="login">
-  <div class="title">
-    <h1>Login</h1>
-  </div>
-  <div class="form">
-    <form>
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div class="login">
+    <div class="title">
+      <h1>Login</h1>
+    </div>
+    <div class="form">
       <div class="ui-g ui-fluid">
         <div class="ui-g-12">
           <div class="ui-inputgroup">
             <span class="ui-inputgroup-addon">
               @
             </span>
-            <input type="text" pInputText placeholder="Email">
+            <input formControlName="email" type="text" pInputText placeholder="Email">
           </div>
+          <barbex-validation-errors *ngIf="form?.get('email')?.touched" [error]="getFormFieldError('email')">
+          </barbex-validation-errors>
         </div>
         <div class="ui-g-12">
           <div class="ui-inputgroup">
             <span class="ui-inputgroup-addon">
               <i class="pi pi-lock"></i>
             </span>
-            <input type="text" pInputText placeholder="Senha">
+            <input formControlName="password" type="password" pInputText placeholder="Senha">
           </div>
+          <barbex-validation-errors *ngIf="form?.get('password')?.touched" [error]="getFormFieldError('password')">
+          </barbex-validation-errors>
         </div>
       </div>
-    </form>
+    </div>
+    <div class="footer">
+      <p-button type="submit" styleClass="login-btn ui-button-info ui-button-raised" label="Entrar"></p-button>
+      <a class="mt" routerLink="../signup">Não possui conta? Clique aqui para criar uma</a>
+      <a class="mt" routerLink="../forgot">Esqueci minha senha</a>
+    </div>
   </div>
-  <div class="footer">
-    <p-button styleClass="login-btn ui-button-info ui-button-raised" label="Entrar"></p-button>
-	<a class="mt" routerLink="../signup">Não possui conta? Clique aqui para criar uma.</a>
-  </div>
-</div>
+</form>

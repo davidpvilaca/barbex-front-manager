@@ -1,20 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { finalize } from 'rxjs/operators';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
-import { LoadingService, AuthService } from '@core/providers';
+import { LoadingService } from '@core/providers';
 
 @Component({
-  selector: 'barbex-signup',
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.scss']
+  selector: 'barbex-barber-register',
+  templateUrl: './barber-register.component.html',
+  styleUrls: ['./barber-register.component.scss']
 })
-export class SignupComponent implements OnInit {
+export class BarberRegisterComponent implements OnInit {
 
   form: FormGroup;
-  constructor(private readonly formBuilder: FormBuilder, private readonly loading: LoadingService,
-    private readonly auth: AuthService, private readonly router: Router) { }
+  constructor(private readonly formBuilder: FormBuilder, private readonly loading: LoadingService) { }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
@@ -33,22 +30,6 @@ export class SignupComponent implements OnInit {
         }
       }
     });
-  }
-
-  submit() {
-    this.toutchForm();
-    if (this.form.invalid) { return; }
-    this.loading.setLoading();
-    this.auth.signup(this.form.value).pipe(
-      finalize(() => this.loading.clearLoading())
-    ).subscribe(
-      () => {
-        this.router.navigate(['/auth/login'], { queryParams: { signupSuccess: true } });
-      },
-      err => {
-        console.log(err);
-      }
-    );
   }
 
   getFormFieldError(formControlName: string): string | null {
@@ -70,9 +51,22 @@ export class SignupComponent implements OnInit {
     return null;
   }
 
-  private toutchForm(): void {
-    if (this.form.touched) { return; }
-    Object.keys(this.form.controls).forEach(key => this.form.controls[key].markAsTouched());
+  submit() {
+    this.toutchForm();
+    if (this.form.invalid) { return; }
+    this.loading.setLoading();
+    setTimeout(() => {
+      this.onSuccess(this.form.value);
+      this.loading.clearLoading();
+    }, 1500);
+  }
+
+  private onSuccess(data: any): void {
+    console.log(data);
+  }
+
+  private onError(err: any): void {
+    console.error(err);
   }
 
   private checkPasswords() {
@@ -80,6 +74,11 @@ export class SignupComponent implements OnInit {
     const pass = this.form.get('password').value;
     const confirmPass = this.form.get('repassword').value;
     return pass === confirmPass ? null : { repassword: true };
+  }
+
+  private toutchForm(): void {
+    if (this.form.touched) { return; }
+    Object.keys(this.form.controls).forEach(key => this.form.controls[key].markAsTouched());
   }
 
 }
