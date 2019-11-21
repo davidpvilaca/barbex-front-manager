@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "start:prod": "http-server -p $PORT dist/barbex-front-manager",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -12,6 +13,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^8.2.7",
+    "@angular/cdk": "^8.2.3",
     "@angular/common": "~8.2.7",
     "@angular/compiler": "~8.2.7",
     "@angular/core": "~8.2.7",
@@ -19,6 +21,10 @@
     "@angular/platform-browser": "~8.2.7",
     "@angular/platform-browser-dynamic": "~8.2.7",
     "@angular/router": "~8.2.7",
+    "bootstrap": "4.3.1",
+    "http-server": "^0.11.1",
+    "jwt-decode": "^2.2.0",
+    "ngx-bootstrap": "^5.2.0",
     "primeicons": "^2.0.0",
     "primeng": "^8.0.3",
     "rxjs": "~6.4.0",
@@ -32,6 +38,7 @@
     "@angular/language-service": "~8.2.7",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/jwt-decode": "^2.2.1",
     "@types/node": "~8.9.4",
     "codelyzer": "^5.0.0",
     "jasmine-core": "~3.4.0",
