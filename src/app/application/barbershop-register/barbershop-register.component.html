@@ -1,0 +1,105 @@
+<p-button type="button" icon="pi pi-arrow-left" iconPos="left" styleClass="ui-button-secondary ui-button-raised"
+  label="Voltar" (onClick)="back()"></p-button>
+<div class="row">
+  <div class="col-12 text-center">
+    <h2>Cadastro de barbearias</h2>
+  </div>
+</div>
+<form [formGroup]="form" (ngSubmit)="submit()" style="margin-top: 30px">
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="form-group">
+        <label for="name">Nome</label>
+        <input type="text" formControlName="name" class="form-control" id="name"
+          placeholder="Insira o nome do estabelecimento">
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="form-group">
+        <label for="cnpj">CNPJ</label>
+        <input type="text" formControlName="cnpj" class="form-control" id="cnpj"
+          placeholder="Insira o CNPJ do estabelecimento">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4 col-md-6 col-sm-12">
+      <div class="form-group">
+        <label for="cep">CEP</label>
+        <input type="text" formControlName="cep" class="form-control" id="cep" placeholder="">
+      </div>
+    </div>
+    <div class="col-lg-5 col-md-6 col-sm-12">
+      <div class="form-group">
+        <label for="street">Rua</label>
+        <input type="text" formControlName="street" class="form-control" id="street" placeholder="Nome da rua">
+      </div>
+    </div>
+    <div class="col-lg-1 col-md-6 col-sm-12">
+      <div class="form-group">
+        <label for="number">Nº</label>
+        <input type="text" formControlName="number" class="form-control" id="number" placeholder="">
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-6 col-sm-12">
+      <div class="form-group">
+        <label for="complement">Complemento</label>
+        <input type="text" formControlName="complement" class="form-control" id="complement" placeholder="">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-5 col-md-12">
+      <div class="form-group">
+        <label for="neighborhood">Bairro</label>
+        <input type="text" formControlName="neighborhood" class="form-control" id="neighborhood" placeholder="">
+      </div>
+    </div>
+    <div class="col-lg-5 col-md-8">
+      <div class="form-group">
+        <label for="city">Cidade</label>
+        <input type="text" formControlName="city" class="form-control" id="city" placeholder="">
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-4">
+      <div class="form-group">
+        <label for="state">Estado</label>
+        <select id="state" formControlName="state" class="form-control" name="state">
+          <option value="AC">Acre</option>
+          <option value="AL">Alagoas</option>
+          <option value="AP">Amapá</option>
+          <option value="AM">Amazonas</option>
+          <option value="BA">Bahia</option>
+          <option value="CE">Ceará</option>
+          <option value="DF">Distrito Federal</option>
+          <option value="ES">Espírito Santo</option>
+          <option value="GO">Goiás</option>
+          <option value="MA">Maranhão</option>
+          <option value="MT">Mato Grosso</option>
+          <option value="MS">Mato Grosso do Sul</option>
+          <option value="MG">Minas Gerais</option>
+          <option value="PA">Pará</option>
+          <option value="PB">Paraíba</option>
+          <option value="PR">Paraná</option>
+          <option value="PE">Pernambuco</option>
+          <option value="PI">Piauí</option>
+          <option value="RJ">Rio de Janeiro</option>
+          <option value="RN">Rio Grande do Norte</option>
+          <option value="RS">Rio Grande do Sul</option>
+          <option value="RO">Rondônia</option>
+          <option value="RR">Roraima</option>
+          <option value="SC">Santa Catarina</option>
+          <option value="SP">São Paulo</option>
+          <option value="SE">Sergipe</option>
+          <option value="TO">Tocantins</option>
+          <option value="EX">Estrangeiro</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col text-right actions">
+      <p-button type="submit" styleClass="login-btn ui-button-info ui-button-raised" label="Cadastrar"></p-button>
+    </div>
+  </div>
+</form>
