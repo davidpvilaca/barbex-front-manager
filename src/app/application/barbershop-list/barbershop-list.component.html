@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-12" style="margin-bottom: 30px;">
+    <h3>Minhas barbearias</h3>
+  </div>
+  <div class="col">
+    <label for="filterCity">Filtrar por cidade &nbsp;</label>
+    <p-dropdown inputId="filterCity" [options]="addresses" (onChange)="filterCity($event.value)"></p-dropdown>
+  </div>
+  <div class="col-12">
+    <p-table #bsTable [columns]="cols" [value]="barbershops" [paginator]="true" [rows]="15">
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td rowspan="1" colspan="3">Nenhuma barbearia encontrada.</td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="caption">
+        <div style="text-align: right">
+          <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+          <input type="text" pInputText size="30" placeholder="Pesquisar"
+            (input)="bsTable.filterGlobal($event.target.value, 'contains')" style="width:auto">
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+            {{col.header}}
+            <p-sortIcon [field]="col.field"></p-sortIcon>
+          </th>
+          <th></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-barbershop>
+        <tr>
+          <td>{{barbershop.name}}</td>
+          <td>{{barbershop.grade || 'Sem avaliação'}}</td>
+          <td class="text-right">
+            <p-button style="margin-right: 10px;" styleClass="ui-button-default" icon="pi pi-pencil"></p-button>
+            <p-button styleClass="ui-button-danger" icon="pi pi-trash"></p-button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+  <div class="col-12 text-right" style="margin-top: 15px;">
+    <p-button type="button" styleClass="login-btn ui-button-info ui-button-raised" label="Nova barbearia"
+      (onClick)="register()"></p-button>
+  </div>
+</div>
