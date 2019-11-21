@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col-12" style="margin-bottom: 15px;">
+    <h3>Meus barbeiros</h3>
+  </div>
+  <div class="col-12" style="margin-bottom: 15px;">
+    <label for="barbershop">Barbearia</label>
+    <select id="barbershop" [(ngModel)]="barbershop" class="form-control" name="barbershop" (change)="getBarbers()">
+      <option [value]="undefined" disabled>Selecione a barbearia...</option>
+      <option *ngFor="let bs of barbershops" [value]="bs.id">{{bs.name}}</option>
+    </select>
+  </div>
+  <div class="col-12" [hidden]="!barbershop">
+    <p-table #bsTable [columns]="cols" [value]="barbers" [paginator]="true" [rows]="15">
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td rowspan="1" colspan="2">Nenhum barbeiro encontrado.</td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="caption">
+        <div style="text-align: right">
+          <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+          <input type="text" pInputText size="30" placeholder="Pesquisar"
+            (input)="bsTable.filterGlobal($event.target.value, 'contains')" style="width:auto">
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+            {{col.header}}
+            <p-sortIcon [field]="col.field"></p-sortIcon>
+          </th>
+          <th></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-barber>
+        <tr>
+          <td>{{barber.user.name}}</td>
+          <!-- <td>{{barber.grade || 'Sem avaliação'}}</td> -->
+          <td class="text-right">
+            <p-button style="margin-right: 10px;" styleClass="ui-button-default" icon="pi pi-pencil"></p-button>
+            <p-button styleClass="ui-button-danger" icon="pi pi-trash"></p-button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+  <div class="col-12 text-right" style="margin-top: 15px;">
+    <p-button type="button" styleClass="login-btn ui-button-info ui-button-raised" label="Novo barbeiro"
+      (onClick)="register(barbershop)" [disabled]="!barbershop"></p-button>
+  </div>
+</div>
