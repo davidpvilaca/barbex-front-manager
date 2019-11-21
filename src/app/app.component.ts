@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoadingService } from '@core/providers';
 
 @Component({
   selector: 'barbex-root',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'barbex-front-manager';
+  isLoading = true;
+
+  constructor(private readonly loading: LoadingService) {
+    this.loading.isLoading.subscribe(value => this.isLoading = value);
+  }
 }
