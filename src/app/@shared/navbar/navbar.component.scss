@@ -1,0 +1,34 @@
+@font-face {
+  font-family: logo;
+  src: url('/assets/fonts/unlearn2.ttf');
+}
+
+@media (min-width: 990px) {
+  .collapse.navbar-collapse {
+    padding-left: 25px;
+  }
+}
+
+.nav-right {
+  flex: 1;
+  text-align: right;
+
+  .user-info {
+    color: #fff;
+    display: inline-block;
+    margin-right: 20px;
+  }
+
+  button {
+    margin-right: 10px;
+  }
+}
+
+a.navbar-brand {
+  font-family: logo;
+  font-size: 2.1rem;
+  text-transform: uppercase;
+  img.logo-small {
+    height: 46px;
+  }
+}

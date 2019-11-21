@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">
+    <img class="logo-small" src="/assets/img/logo_pin_small.png" alt="LOGO">
+    Barbex
+  </a>
+
+  <div class="collapse navbar-collapse" id="navbar-top" [class.show]="show">
+    <ul class="navbar-nav mr-auto">
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item">
+        <a class="nav-link" routerLink="/app">Home</a>
+      </li>
+      <li routerLinkActive="active" class="nav-item">
+        <a class="nav-link" routerLink="/app/barbershop">Barbearias</a>
+      </li>
+      <li routerLinkActive="active" class="nav-item">
+        <a class="nav-link" routerLink="/app/barber">Barbeiros</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="nav-right" *ngIf="user">
+    <div class="user-info">
+      <div class="name">
+        <p>{{user.name | limitTo:17}}</p>
+      </div>
+    </div>
+    <button class="btn btn-outline-secondary pull-right" type="button" title="Fazer logout" (click)="logout()">
+      <i class="fas fa-sign-out-alt"></i>
+    </button>
+    <button class="navbar-toggler" type="button" (click)="show = !show">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
